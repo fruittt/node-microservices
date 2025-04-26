@@ -1,9 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-blog/client/node_modules
-blog/posts/node_modules
-blog/comments/node_modules
+blog/*/node_modules
 blog/client/.pnp
 .pnp.js
 
