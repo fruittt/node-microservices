@@ -26,6 +26,23 @@ app.post('/posts', async (req, res) => {
   })
   res.status(201).send(posts[id]);
 })
+
+app.post('/events', (req, res) => {
+  const { type, data } = req.body;
+  // if (type === 'CommentModerated') {
+  //   const { id, postId, status, content } = data;
+  //   const post = posts[postId];
+  //   const comments = post.comments || [];
+  //   const comment = comments.find(comment => {
+  //     return comment.id === id;
+  //   })
+  //   comment.status = status;
+  // }
+  // console.log('Event received', req.body);
+  // res.send({}); 
+  console.log('Event received', req.body.type)
+  res.send({ status: 'OK' }); 
+})
 app.listen(4000, () => {
     console.log('Listening on 4000');
 })

@@ -1,21 +1,25 @@
-import React, { useState, useEffect, useCallback } from 'react'
-import axios from 'axios';
+import React from 'react'
 
-function CommentList({ postId }) {
-  const [comments, setComments] = useState({});
-  // 使用 useCallback 包裹函数以稳定引用
-  const fetchComments = useCallback(async () => {
-    const res = await axios.get(`http://localhost:4001/posts/${postId}/comments`);
-    setComments(res.data);
-  }, [postId]);
-
-  useEffect(() => {
-    fetchComments();
-  }, [fetchComments]);
+function CommentList({ comments }) {
+  if (!comments) {
+    return (
+      <div></div>
+    ) 
+  }
   const renderedComments = Object.values(comments).map(comment => {
+    let content;
+    if (comment.status === 'approved') {
+      content = comment.content;
+    }
+    if (comment.status === 'pending') {
+      content = 'this comment is awaiting moderation'; 
+    }
+    if (comment.status === 'rejected') {
+      content = 'this comment has been rejected';
+    }
     return (
       <li className='comment' key={comment.id}>
-        {comment.content}
+        {content}
       </li>
     ) 
   })
