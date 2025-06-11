@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
   - name: posts
-    image: stephengrider/posts
+    image: fruitttt/posts
     command: ["node", "index.js"] 
     ports:
     - containerPort: 4000
