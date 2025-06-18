@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: comments
-        image: stephengrider/comments
+        image: fruitttt/comments
         command: ["node", "index.js"]
         ports:
         - containerPort: 4001

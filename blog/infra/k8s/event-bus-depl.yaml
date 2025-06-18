@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: event-bus
-        image: stephengrider/event-bus
+        image: fruitttt/event-bus
         command: ["node", "index.js"]
         ports:
         - containerPort: 4005
