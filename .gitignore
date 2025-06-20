@@ -3,6 +3,9 @@
 # dependencies
 blog/*/node_modules
 blog/client/.pnp
+ticketing/node_modules
+ticketing/frontend/*/node_modules
+ticketing/backend/*/node_modules
 .pnp.js
 
 # testing

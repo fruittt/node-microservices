@@ -1,0 +1,18 @@
+apiVersion: skaffold/v2alpha3
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./backend/infra/k8s/*.yaml
+build:
+  local:
+    push: false
+  artifacts:
+    - image: fruitttt/auth
+      context: ./backend/auth
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
